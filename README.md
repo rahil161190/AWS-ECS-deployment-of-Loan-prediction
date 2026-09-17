@@ -1,4 +1,11 @@
 Main machine learning model for Loantap with file name "LoanTap_LogisticRegression(Rahil)"
+## 🚀 Live Demo
+
+Try the interactive loan eligibility predictor here:
+👉 [**LoanTap Eligibility Predictor (Streamlit App)**](https://aws-ecs-deployment-of-loan-prediction-qfzq9imr2kz7htnb5xanih.streamlit.app/)
+
+> Note: the app may take ~30 seconds to wake up if it's been idle for a while (free-tier hosting).
+
 # LoanTap Credit-Risk Pipeline 💳
 
 An end-to-end proof-of-concept for predicting loan defaults using **Logistic Regression, SMOTE, and class-weighting**.
