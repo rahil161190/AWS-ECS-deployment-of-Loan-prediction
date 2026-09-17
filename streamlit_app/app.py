@@ -17,6 +17,7 @@ loan_status: 0 = Fully Paid (ELIGIBLE), 1 = Charged Off (NOT ELIGIBLE)
 """
 
 import pickle
+import os
 import datetime
 import numpy as np
 import pandas as pd
@@ -33,7 +34,12 @@ st.set_page_config(page_title="LoanTap Eligibility Predictor", page_icon="💰",
 # ----------------------------
 @st.cache_resource
 def load_bundle():
-    with open("classifier.pkl", "rb") as f:
+    # Resolve relative to this script's own folder, not the process's working
+    # directory — Streamlit Cloud runs apps with the repo root as cwd, so a
+    # bare "classifier.pkl" would otherwise pick up a different file if one
+    # exists elsewhere in the repo (e.g. an unrelated pickle at repo root).
+    pkl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "classifier.pkl")
+    with open(pkl_path, "rb") as f:
         return pickle.load(f)
 
 bundle = load_bundle()
